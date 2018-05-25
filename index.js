@@ -8,15 +8,20 @@ var express = require('express'),
     app.use(express.static(__dirname+'views'));
     app.use('/assets',express.static(__dirname+'/assets'));
     app.get('/visits',function(req,res){
-        console.log("Sukes");
         query = queries.visits();
         con.getData(query,result=>{
-            console.log("Rs",result);
-            res.render("visits/visits.html",{mypage:{title1:'Kunjungan',title2:'histori'},data:result});
+            console.log("Res",result);
+            res.render("visits/index.html",{mypage:{title1:'Kunjungan',title2:'histori'},data:result});
+        });
+    })
+    app.get('/offers',function(req,res){
+        query = queries.visits();
+        con.getData(query,result=>{
+            console.log("Res",result);
+            res.render("offers/index.html",{mypage:{title1:'Penawaran',title2:'histori'},data:result});
         });
     })
     app.get('/offersAdd',function(req,res){
-        console.log("Sukes");
         query = queries.visits();
         con.getData(query,result=>{
             console.log("Rs",result);
